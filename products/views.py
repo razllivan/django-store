@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 
@@ -12,6 +14,7 @@ class IndexView(TitleMixin, TemplateView):
     title = 'Store'
 
 
+@method_decorator(cache_page(60 * 15), name='dispatch')
 class ProductListView(TitleMixin, ListView):
     model = Product
     template_name = 'products/products.html'
