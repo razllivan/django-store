@@ -76,7 +76,7 @@
                                         <a href="#">{{ product.name }}</a>
                                     </h4>
                                     <h5>{{ product.price|intcomma }}</h5>
-                                    <p class="card-text">{{ product.description }}</p>
+                                    <p class="card-text">{{ product.description|truncatewords:20 }}</p>
                                 </div>
                                 <div class="card-footer text-center">
                                     <a class="btn btn-outline-success"
