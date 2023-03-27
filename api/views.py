@@ -1,13 +1,9 @@
-from django.shortcuts import render
-from rest_framework import generics, status
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
-from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.generics import ListAPIView
-from products.models import Product, Basket
+
+from products.models import Product
 from products.serializers import ProductSerializer
 
 
-class ProductListAPIView(ListAPIView):
+class ProductModelViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
