@@ -1,5 +1,6 @@
 from rest_framework import status
-from rest_framework.authentication import TokenAuthentication, SessionAuthentication
+from rest_framework.authentication import (SessionAuthentication,
+                                           TokenAuthentication)
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticated
@@ -7,8 +8,8 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from api.permissions import IsAdminOrReadOnly
-from products.models import Product, Basket
-from products.serializers import ProductSerializer, BasketSerializer
+from products.models import Basket, Product
+from products.serializers import BasketSerializer, ProductSerializer
 
 
 class ProductModelViewSet(ModelViewSet):
